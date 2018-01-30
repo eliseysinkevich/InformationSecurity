@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+    Layout = "~/Views/Shared/_reCAPTCHA.cshtml";
+}
+<div>
+    <h2>Регистрация</h2>
+    <form method="post" action="">
+        <table>
+            <tr>
+                <td><p>Имя пользователя:</p></td>
+                <td><input type="text" name="Name" value="@ViewBag.Name" /></td>
+            </tr>
+            <tr>
+            <tr>
+                <td><p>Логин:</p></td>
+                <td><input type="text" name="Login" value="@ViewBag.Login" /></td>
+            </tr>
+            <tr>
+                <td><p>Пароль:</p></td>
+                <td>
+                    <input type="password" name="Password" />
+                </td>
+            </tr>
+            <tr>
+                <td><p>Подтвердите пароль:</p></td>
+                <td>
+                    <input type="password" name="confirm" /><br />
+                </td>
+            </tr>
+            <tr >
+                <td colspan="2">
+                    <p style="color: red;">
+                        @if(ViewBag.Error != null)
+                        {
+                            foreach (string s in ViewBag.Error)
+                            {
+                                @s<br />
+                            }
+                        }
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="g-recaptcha" data-sitekey="6LdZVzwUAAAAAOBCPsmiHH8eVif0UpvzvDw-4HkU"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Зарегестрироваться" /> </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
+</div>
+<script src='https://www.google.com/recaptcha/api.js'></script>

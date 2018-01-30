@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_reCAPTCHA.cshtml";
+}
+    <div>
+        <h2>Вход</h2>
+        <form method="post" action="">
+            <table>
+                <tr>
+                <tr>
+                    <td><p>Логин:</p></td>
+                    <td><input type="text" name="Login" /></td>
+                </tr>
+                <tr>
+                    <td><p>Пароль:</p></td>
+                    <td>
+                        <input type="password" name="Password" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><p style="color: red;">@ViewBag.Error</p></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <div class="g-recaptcha" data-sitekey="6LdZVzwUAAAAAOBCPsmiHH8eVif0UpvzvDw-4HkU"></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Войти" /> </td>
+                    <td></td>
+                </tr>
+            </table>
+        </form>
+    </div>

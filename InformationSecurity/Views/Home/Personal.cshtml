@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Personal";
+    if (ViewBag.User == null)
+    {
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+    else
+    {
+        Layout = "~/Views/Shared/_User.cshtml";
+    }
+}
+@if (ViewBag.User != null)
+{
+    <h2>Personal</h2>
+    <p>Добро пожаловать, @ViewBag.User.Name</p>
+    <br />
+    <h3>Список загруженных файлов:</h3>
+    <table>
+        @foreach (InformationSecurity.Models.File file in ViewBag.Files)
+        {
+            <tr>
+                <td>@file.Name</td>
+            </tr>
+        }
+    </table>
+    <p>Всего загруженных файлов: @ViewBag.Files.Count</p>
+    <br />
+    <button onclick="window.location='/Home/Upload';">Загрузить файл</button><br />
+    <button onclick="window.location = '/Home/ChangePassword';">Сменить пароль</button>
+}
